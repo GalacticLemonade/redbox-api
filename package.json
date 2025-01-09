@@ -12,5 +12,8 @@
     "kiosk"
   ],
   "author": "galacticlemonade",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
 }
