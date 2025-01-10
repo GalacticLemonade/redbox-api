@@ -5,9 +5,12 @@ import { fileURLToPath } from 'node:url';
 
 const appDir = dirname(fileURLToPath(import.meta.url));
 
+// i really need to fix the [kioskID] system man
+
 /*
 Outgoing:
-
+public int Id { get; set; }
+public string Name { get; set; }
 */
 
 export const execute = (req, res) => {
