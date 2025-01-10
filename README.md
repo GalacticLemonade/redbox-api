@@ -6,8 +6,6 @@ todo:
 database!!
 <br>
 still need to look through KioskClientService.API and other dlls for what the kiosk expects from the server
-<br>
-dynamic kiosk ids in some places
 
 # domains
 these are the domains it uses:
