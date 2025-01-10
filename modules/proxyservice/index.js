@@ -23,23 +23,29 @@ function logError(message) {
     console.error(chalk.yellow("modules/proxyservice ") + chalk.red("ERROR: ") + message);
 }
 
+// helper function
+
+function isAllNumbers(str) {
+    if (!str) return false
+    return /^[0-9]+$/.test(str)
+}
+
 export function run() {
     app.use(express.json());
 
     app.all("*", (req, res) => {
         log("new " + req.method + " request to " + req.originalUrl);
 
-        // ! needs support for dynamic kiosk ids
-        // maybe split originalUrl and if one
-        // is all numbers that's the kiosk id?
-        // and the originalUrl is turned into
-        // [kioskID] for the path?
-
         let originalUrl = req.originalUrl
-
         let splitUrl = originalUrl.split('/')
 
-        
+        // check if it has a kiosk id
+        for (let i = 0; i < splitUrl.length; i++) {
+            if (isAllNumbers(splitUrl[i])) {
+                originalUrl = originalUrl.replace(splitUrl[i], "[kioskID]")
+                break
+            }
+        }
 
         // handle root path or invalid urls
         if (originalUrl === "" || originalUrl === "/") {
