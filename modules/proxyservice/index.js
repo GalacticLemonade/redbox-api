@@ -35,8 +35,14 @@ export function run() {
         // and the originalUrl is turned into
         // [kioskID] for the path?
 
+        let originalUrl = req.originalUrl
+
+        let splitUrl = originalUrl.split('/')
+
+        
+
         // handle root path or invalid urls
-        if (req.originalUrl === "" || req.originalUrl === "/") {
+        if (originalUrl === "" || originalUrl === "/") {
             res.status(404).json({
                 MessageId: v4(),
                 Errors: ['Endpoint does not exist'],
@@ -46,7 +52,7 @@ export function run() {
         }
 
         // resolve the endpoint path
-        const endpointPath = path.join(__dirname, req.originalUrl);
+        const endpointPath = path.join(__dirname, originalUrl);
 
         // check if the directory exists
         if (!fs.existsSync(endpointPath)) {
