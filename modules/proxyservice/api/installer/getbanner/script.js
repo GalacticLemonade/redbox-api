@@ -7,7 +7,7 @@ const appDir = dirname(fileURLToPath(import.meta.url));
 
 /*
 Outgoing:
-public List<InstallerModels.State> States { get; }
+
 */
 
 export const execute = (req, res) => {
