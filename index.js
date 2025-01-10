@@ -14,12 +14,14 @@ function log(message) {
 }
 
 function logWarning(message) {
-    console.log(chalk.cyan("servicehandler ") + chalk.orange("WARNING: ") + message)
+    console.log(chalk.cyan("servicehandler ") + chalk.yellow("WARNING: ") + message)
 }
 
 function logError(message) {
     console.error(chalk.cyan("servicehandler ") + chalk.red("ERROR: ") + message)
 }
+
+log("service starter started!")
 
 // read all subdirectories, i.e. each individual server
 fs.readdir(modulesDir, async (err, subdirs) => {
