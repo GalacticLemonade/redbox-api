@@ -12,7 +12,7 @@ const PORT = 3014;
 const app = express();
 
 function log(message) {
-    console.log(chalk.blueBright("modules/adserver ") + chalk.green("INFO: ") + message);
+    //console.log(chalk.blueBright("modules/adserver ") + chalk.green("INFO: ") + message);
 }
 
 function logWarning(message) {
