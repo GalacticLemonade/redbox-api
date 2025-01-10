@@ -23,40 +23,41 @@ function logError(message) {
 
 log("service starter started!")
 
-// read all subdirectories, i.e. each individual server
+// read all subdirectories inside 'modules'
 fs.readdir(modulesDir, async (err, subdirs) => {
     if (err) {
-        logError(err)
+      logError("Error reading modules directory:", err);
+      return;
     }
-
+  
     for (const subdir of subdirs) {
-        const subdirPath = path.join(modulesDir, subdir)
-
-        // check if it is a directory
-        if (fs.lstatSync(subdirPath).isDirectory()) {
-            const indexPath = path.join(subdir, "index.js")
-
-            // check if index exists
-            if (fs.existsSync(indexPath)) {
-                try {
-                    // convert file path into a file:// uri
-                    const indexUrl = pathToFileURL(indexPath).href
-
-                    // import index.js
-                    const importedModule = await import(indexUrl)
-
-                    // execute the 'run' function if it exists
-                    if (typeof importedModule.run === "function") {
-                        importedModule.run()
-                    } else {
-                        logWarning(`No 'run' function found in ${indexPath}!`)
-                    }
-                } catch (importError) {
-                    logError(`Error importing ${indexPath}: ` + importError)
-                }
+      const subdirPath = path.join(modulesDir, subdir);
+  
+      // check if it's a directory
+      if (fs.lstatSync(subdirPath).isDirectory()) {
+        const indexPath = path.join(subdirPath, "index.js");
+  
+        // check if 'index.js' exists in the directory
+        if (fs.existsSync(indexPath)) {
+          try {
+            // convert the file path to a file:// URL
+            const indexUrl = pathToFileURL(indexPath).href;
+  
+            // import the 'index.js' file
+            const importedModule = await import(indexUrl);
+  
+            // execute the 'run' function if it exists
+            if (typeof importedModule.run === "function") {
+              importedModule.run();
             } else {
-                logWarning(`No 'index.js' found in ${subdirPath}!`)
+              logWarning(`No 'run' function found in ${indexPath}`);
             }
+          } catch (importError) {
+            logError(`Error importing ${indexPath}:`, importError);
+          }
+        } else {
+            logWarning(`No 'index.js' found in ${subdirPath}`);
         }
+      }
     }
-})
+  });
