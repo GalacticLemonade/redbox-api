@@ -3,6 +3,8 @@ Faithful replication of the Redbox backend server(s)!
 
 todo:
 <br>
+database!!
+<br>
 still need to look through KioskClientService.API and other dlls for what the kiosk expects from the server
 <br>
 dynamic kiosk ids in some places
