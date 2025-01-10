@@ -29,7 +29,7 @@ export function run() {
     app.all("*", (req, res) => {
         log("new " + req.method + " request to " + req.originalUrl);
 
-        // Handle root path or invalid urls
+        // handle root path or invalid urls
         if (req.originalUrl === "" || req.originalUrl === "/") {
             res.status(404).json({
                 MessageId: v4(),
@@ -39,10 +39,10 @@ export function run() {
             return;
         }
 
-        // Resolve the endpoint path
+        // resolve the endpoint path
         const endpointPath = path.join(__dirname, req.originalUrl);
 
-        // Check if the directory exists
+        // check if the directory exists
         if (!fs.existsSync(endpointPath)) {
             res.status(404).json({
                 MessageId: v4(),
@@ -52,13 +52,13 @@ export function run() {
             return;
         }
 
-        // Convert the endpoint path to a valid file URL
+        // convert the endpoint path to a valid file URL
         const moduleURL = pathToFileURL(path.join(endpointPath, 'script.js')).href;
 
-        // Add a timestamp to force reloading
+        // add a timestamp to force reloading
         const timestampedURL = `${moduleURL}?v=${Date.now()}`;
 
-        // Import the dynamically matched script.js for the route
+        // import the dynamically matched script.js for the route
         import(timestampedURL).then((ApiModule) => {
             if (ApiModule.method !== req.method) {
                 res.status(405).json({
