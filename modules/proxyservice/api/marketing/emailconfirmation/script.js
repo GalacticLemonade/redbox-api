@@ -6,10 +6,9 @@ import { fileURLToPath } from 'node:url';
 const appDir = dirname(fileURLToPath(import.meta.url));
 
 /*
-Sends:
+Incoming:
 
-
-Expects:
+Outgoing:
 
 */
 
