@@ -28,7 +28,7 @@ export function run() {
     app.use(express.json())
 
     app.all("*", (req, res) => {
-
+        log("new " + req.method + " request to " + req.originalUrl)
     })
 
     app.listen(PORT, () => {
