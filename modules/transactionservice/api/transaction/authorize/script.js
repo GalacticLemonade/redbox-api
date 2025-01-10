@@ -12,4 +12,4 @@ export const execute = (req, res) => {
     })
 }
 
-export const method = 'GET'
+export const method = 'POST'
