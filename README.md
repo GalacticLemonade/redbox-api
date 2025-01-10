@@ -6,17 +6,17 @@ todo: still need to look through KioskClientService.API and other dlls for what 
 # domains
 these are the domains it uses:
 
-adserver.kiosk.prod.redbox.galacticlemon.dev
+adserver.kiosk.prod.redbox.com
 <br>
-dataservice.kiosk.prod.redbox.galacticlemon.dev
+dataservice.kiosk.prod.redbox.com
 <br>
-kioskinventory.kiosk.prod.redbox.galacticlemon.dev
+kioskinventory.kiosk.prod.redbox.com
 <br>
-proxyservice.kiosk.prod.redbox.galacticlemon.dev
+proxyservice.kiosk.prod.redbox.com
 <br>
-reels.product.prod.redbox.galacticlemon.dev
+reels.product.prod.redbox.com
 <br>
-transactionservice.kiosk.prodp.redbox.galacticlemon.dev
+transactionservice.kiosk.prodp.redbox.com
 
 # running
 to run this, download it and run `npm install`
