@@ -30,7 +30,7 @@ export function run() {
         log("new " + req.method + " request to " + req.originalUrl);
 
         // ! needs support for dynamic kiosk ids
-        // maybe substring originalUrl and if one
+        // maybe split originalUrl and if one
         // is all numbers that's the kiosk id?
         // and the originalUrl is turned into
         // [kioskID] for the path?
