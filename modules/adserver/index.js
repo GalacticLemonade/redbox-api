@@ -13,8 +13,6 @@ const __dirname = path.dirname(__filename);
 const PORT = 3014
 const app = express();
 
-const moduleCache = new Map(); // Cache to store loaded modules
-
 function log(message) {
     console.log(chalk.blueBright("modules/adserver ") + chalk.green("INFO: ") + message)
 }
