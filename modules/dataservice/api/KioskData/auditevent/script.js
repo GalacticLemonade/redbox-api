@@ -5,7 +5,15 @@ import { fileURLToPath } from 'node:url';
 
 const appDir = dirname(fileURLToPath(import.meta.url));
 
-
+/*
+Incoming:
+public DateTime LogDate { get; set; }
+public string CreatedOnLocal { get; set; }
+public string EventType { get; set; }
+public string Username { get; set; }
+public string Message { get; set; }
+public string Source { get; set; }
+*/
 
 export const execute = (req, res) => {
     res.status(200).json({
