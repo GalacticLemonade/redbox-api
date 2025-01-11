@@ -5,6 +5,12 @@ import { fileURLToPath } from 'node:url';
 
 const appDir = dirname(fileURLToPath(import.meta.url));
 
+/*
+Incoming:
+public string ProductGroupId { get; set; }
+public List<string> MoreLikeThisTitles { get; set; }
+*/
+
 export const execute = (req, res) => {
     res.status(200).json({
         MessageId: v4(),
