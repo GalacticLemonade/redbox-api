@@ -21,6 +21,17 @@ function TripleDESEncrypt(data) {
     return encrypted.toString('base64');
 }
 
+/*
+Incoming:
+public string Username { get; set; }
+public string Password { get; set; }
+public long KioskId { get; set; }
+public bool UseNtAuthentication { get; set; }
+
+Outgoing:
+BaseResponse
+*/
+
 export const execute = (req, res) => {
 
     if (req.body.Username == process.env.FMA_USER && req.body.Password == TripleDESEncrypt(process.env.FMA_PASS)) {
