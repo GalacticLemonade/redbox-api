@@ -3,9 +3,9 @@ Faithful replication of the Redbox backend server(s)!
 
 todo:
 <br>
-database!!
+decompile more to see responses!!!!!
 <br>
-still need to look through KioskClientService.API and other dlls for what the kiosk expects from the server
+database!!
 
 # domains
 these are the domains it uses:
