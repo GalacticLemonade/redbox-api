@@ -5,6 +5,8 @@ todo:
 <br>
 decompile more to see responses!!!!!
 <br>
+look at swagger
+<br>
 database!!
 
 # domains
