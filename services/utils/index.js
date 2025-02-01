@@ -1,4 +1,4 @@
-const io = require('socket.io-client');
+import { io } from 'socket.io-client';
 
 //connect to socket server io
 const socket = io('http://localhost:8005');
