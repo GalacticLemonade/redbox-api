@@ -1,7 +1,11 @@
-const path = require('path')
-const { spawn } = require('child_process')
-const http = require('http')
-const socketIo = require('socket.io')
+import path, { dirname } from 'path'
+import { spawn } from 'child_process'
+import http from 'http'
+import { Server } from "socket.io";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 //http server for socket.io
 const server = http.createServer()
@@ -10,10 +14,10 @@ const server = http.createServer()
 const port = 8005
 
 //attach socket.io to server
-const io = socketIo(server)
+const ioServer = new Server(server)
 
 //listen for client connections
-io.on('connection', (socket) => {
+ioServer.on('connection', (socket) => {
     console.log('Service connected');
 
     //lsten for a message from the client
