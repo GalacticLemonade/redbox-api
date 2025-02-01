@@ -26,5 +26,5 @@ app.use('/', await router({
 }));
 
 app.listen(port, () => {
-	console.log('Test Service listening at http://localhost:${port}');
+	console.log('Test Service listening at http://localhost:' + port);
 });
