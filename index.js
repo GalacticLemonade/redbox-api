@@ -52,3 +52,4 @@ server.listen(port)
 //start all services
 startMicroservice("db")
 startMicroservice("utils")
+startMicroservice("testservice")
