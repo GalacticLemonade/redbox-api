@@ -1,5 +1,11 @@
-const express = require('express');
-const io = require('socket.io-client');
+import express from 'express';
+import io from 'socket.io-client';
+import { router } from 'express-file-routing';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const port = 3001;
@@ -15,9 +21,9 @@ socket.on('message', (data) => {
 	console.log('Received from server:', data);
 });
 
-app.get('/', (req, res) => {
-	res.send('Test Service is running');
-});
+app.use('/', await router({
+	directory: __dirname + '/routes',
+}));
 
 app.listen(port, () => {
 	console.log('Test Service listening at http://localhost:${port}');
