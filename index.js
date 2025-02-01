@@ -57,3 +57,11 @@ server.listen(port);
 startMicroservice('db');
 startMicroservice('utils');
 startMicroservice('testservice');
+
+startMicroservice('transactionservice');
+startMicroservice('reels');
+startMicroservice('proxyservice');
+startMicroservice('kioskinventory');
+startMicroservice('iotcertificateservice');
+startMicroservice('dataservice');
+startMicroservice('adserver');
