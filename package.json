@@ -1,0 +1,14 @@
+{
+  "name": "redbox-api-v3",
+  "version": "1.0.0",
+  "description": "Backend Redbox servers re-implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "redbox"
+  ],
+  "author": "galacticlemonade",
+  "license": "SEE LICENSE IN LICENSE"
+}
