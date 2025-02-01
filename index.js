@@ -18,23 +18,23 @@ const ioServer = new Server(server);
 
 //listen for client connections
 ioServer.on('connection', (socket) => {
-	console.log('Service connected');
+	//console.log('Service connected');
 
 	//lsten for a message from the client
-	socket.on('message', (data) => {
-		console.log('Received from service:', data);
+	socket.on('message', () => {
+		//console.log('Received from service:', data);
 	});
 
 	//handle client disconnect
 	socket.on('disconnect', () => {
-		console.log('Service disconnected');
+		//console.log('Service disconnected');
 	});
 });
 
 //start microservice function
 const startMicroservice = (serviceName) => {
 	const servicePath = path.join(__dirname, 'services', serviceName, 'index.js');
-	console.log(servicePath);
+	//console.log(servicePath);
 	const child = spawn('node', [servicePath]);
 
 	child.stdout.on('data', (data) => {
