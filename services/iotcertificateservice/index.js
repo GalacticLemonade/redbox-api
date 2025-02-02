@@ -14,7 +14,7 @@ const port = 5005;
 const socket = io('http://localhost:8005');
 
 //send a message to the server
-socket.emit('message', 'Hello from IoT Certificate Service!');
+socket.emit('message', 'UTILS ENCRYPT hi');
 
 //listen for messages from the server
 socket.on('message', (data) => {
