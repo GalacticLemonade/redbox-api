@@ -1,3 +1,18 @@
+import express from 'express';
+import { router } from 'express-file-routing';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-console.log('Database service online!');
+const app = express();
+const port = 5010;
+
+app.use('/', await router({
+	directory: __dirname + '/routes',
+}));
+
+app.listen(port, () => {
+	console.log('Database listening at http://localhost:' + port);
+});
