@@ -27,9 +27,6 @@ const startMicroservice = (serviceName) => {
 	});
 };
 
-//listen on http
-server.listen(port);
-
 //start all services
 startMicroservice('db');
 startMicroservice('utils');

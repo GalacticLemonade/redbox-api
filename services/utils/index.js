@@ -1,4 +1,3 @@
-import { io } from 'socket.io-client';
 import { crypto } from 'crypto';
 
 function guidToByteArray(guidStr) {
@@ -43,29 +42,5 @@ function decrypt(data) {
 
     return decrypted.toString('binary');
 }
-
-//connect to socket server io
-const socket = io('http://localhost:8005');
-
-
-//listen for messages from the server
-socket.on('message', (data) => {
-	const args = data.split(' ');
-
-	switch (args) {
-		case 'ENCRYPT':
-			{ const textToEncrypt = args[1];
-
-			socket.emit(encrypt(textToEncrypt));
-			break; }
-		case 'DECRYPT':
-			{ const textToDecrypt = args[1];
-
-			socket.emit(decrypt(textToDecrypt));
-			break; }
-	}
-
-	console.log('Received from server:', data);
-});
 
 console.log('Utils service online!');
