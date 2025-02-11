@@ -12,9 +12,11 @@
   "author": "galacticlemonade",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
+    "chalk": "^5.4.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "express-file-routing": "^3.0.3"
+    "express-file-routing": "^3.0.3",
+    "uuid": "^11.0.5"
   },
   "type": "module",
   "devDependencies": {

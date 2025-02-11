@@ -1,6 +1,7 @@
 import path, { dirname } from 'path';
 import { spawn } from 'child_process';
 import { fileURLToPath } from 'url';
+import chalk from 'chalk';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -15,7 +16,35 @@ const startMicroservice = (serviceName) => {
 	const child = spawn('node', [servicePath]);
 
 	child.stdout.on('data', (data) => {
-		console.log(`${serviceName}: ${data}`);
+		switch (serviceName) {
+			case "proxyservice":
+				console.log(chalk.blue(`${serviceName}: ${data}`));
+				break;
+			case "dataservice":
+				console.log(chalk.red(`${serviceName}: ${data}`));
+				break;
+			case "kioskinventory":
+				console.log(chalk.green(`${serviceName}: ${data}`));
+				break;
+			case "adserver":
+				console.log(chalk.yellow(`${serviceName}: ${data}`));
+				break;
+			case "iotcertificateservice":
+				console.log(chalk.cyan(`${serviceName}: ${data}`));
+				break;
+			case "transactionservice":
+				console.log(chalk.magenta(`${serviceName}: ${data}`));
+				break;
+			case "utils":
+				console.log(chalk.blueBright(`${serviceName}: ${data}`));
+				break;
+			case "db":
+				console.log(chalk.cyanBright(`${serviceName}: ${data}`));
+				break;
+			case "testservice":
+				console.log(chalk.redBright(`${serviceName}: ${data}`));
+				break;
+		}
 	});
 
 	child.stderr.on('data', (data) => {
