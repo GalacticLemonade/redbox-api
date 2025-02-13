@@ -36,7 +36,7 @@ export function run() {
     app.all("*", (req, res) => {
         log("new " + req.method + " request to " + req.originalUrl);
 
-        let originalUrl = req.originalUrl
+        let originalUrl = req.originalUrl.split('?')[0]
         let splitUrl = originalUrl.split('/')
 
         // check if it has a kiosk id

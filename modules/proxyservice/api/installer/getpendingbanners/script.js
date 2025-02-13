@@ -5,15 +5,17 @@ import { fileURLToPath } from 'node:url';
 
 const appDir = dirname(fileURLToPath(import.meta.url));
 
-/*
-Outgoing:
-public List<InstallerModels.Banner> Banners { get; }
-*/
-
 export const execute = (req, res) => {
     res.status(200).json({
         MessageId: v4(),
         Success: true,
+        Errors: [],
+        Banners: [
+            {
+                "Id": 1043,
+                "Name": 'Walmart Supercenter'
+            }
+        ]
     })
 }
 

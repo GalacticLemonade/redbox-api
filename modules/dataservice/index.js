@@ -26,6 +26,22 @@ function logError(message) {
 export function run() {
     app.use(express.json());
 
+    app.post('/bluefinservice/device/activate', (req, res) => {
+        res.status(200).json({
+            Success: true,
+            Errors: [],
+            StatusCode: 200
+        });
+    })
+
+    app.post('/bluefinservice/device/deactivate', (req, res) => {
+        res.status(200).json({
+            Success: true,
+            Errors: [],
+            StatusCode: 200
+        });
+    })
+
     app.all("*", (req, res) => {
         log("new " + req.method + " request to " + req.originalUrl);
 

@@ -5,16 +5,15 @@ import { fileURLToPath } from 'node:url';
 
 const appDir = dirname(fileURLToPath(import.meta.url));
 
-/*
-Outgoing:
-public string OpsMarket { get; set; }
-public string KaseyaServer { get; set; }
-*/
-
 export const execute = (req, res) => {
     res.status(200).json({
-        MessageId: v4(),
-        Success: true,
+        "opsMarket": "Las Vegas, NV",
+        "kaseyaServer": "las_vegas_nv",
+        "success": true,
+        "errors": {},
+        "hostName": "test3",
+        "statusCode": 200,
+        "responseTime": 0
     })
 }
 
